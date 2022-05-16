@@ -1,0 +1,9 @@
+do (
+  def(d, r/
+         (?<year>  \d{4} ) -?  # year 
+         (?<month> \d{2} ) -?  # month 
+         (?<day>   \d{2} )     # day
+        /x),
+  print(d["test"]("1987-07-14")),  # true
+  print("1987-07-14"["match"](d)),  # true
+)

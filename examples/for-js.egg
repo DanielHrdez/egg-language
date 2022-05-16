@@ -1,0 +1,8 @@
+(
+  def(a, [4,3,2,1]),
+  a.forEach(
+    fun(x,i,ra, 
+      print("Element",i,"of ",ra,"is",x)
+    )
+  )
+)

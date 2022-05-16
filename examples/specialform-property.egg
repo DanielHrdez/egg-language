@@ -1,0 +1,6 @@
+(
+    def(b,4),
+    def(state, do[print(+(b,1))]),
+    print(state.ast),
+    print(eval(state)) # 5
+)

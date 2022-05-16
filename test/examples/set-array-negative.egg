@@ -1,0 +1,6 @@
+do(
+  def(m, array(1, 2, 3)),
+  set(m[-1], "asd"),
+  print(m)
+)
+

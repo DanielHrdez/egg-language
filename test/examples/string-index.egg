@@ -1,0 +1,4 @@
+do(
+  print("hello"[1]),               # e
+  print("hello"["substring"](1,4))  # ell
+)

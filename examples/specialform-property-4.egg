@@ -1,0 +1,10 @@
+(
+    def(b,4),
+    def(state, do[
+        print(+(b,1))
+    ]),
+    =(state.scope.b, 9),
+    print(Object.keys(state)), # ["ast","scope"]
+    print(state.ast), # the AST of do(print(+(b,1))))
+    eval(state)       # 10 evals the AST in the current scope
+)

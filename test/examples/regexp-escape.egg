@@ -1,0 +1,8 @@
+do (
+  def(x, RegExp.exec("ia.bb", r/\w+\.\w+/)),
+  print(x), # [ 'ia.bb', index: 0, input: 'ia.bb' ]
+  =(x, RegExp.exec("iabb", r/\w+\.\w+/)),
+  print(x) # null
+)
+
+

@@ -1,0 +1,170 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "line": 1,
+    "col": 1,
+    "length": 2,
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "line": 2,
+        "col": 5,
+        "length": 3,
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "line": 2,
+          "col": 9,
+          "length": 1,
+          "name": "b"
+        },
+        {
+          "type": "value",
+          "value": 4,
+          "line": 2,
+          "col": 11,
+          "length": 1
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "line": 3,
+        "col": 5,
+        "length": 3,
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "line": 3,
+          "col": 9,
+          "length": 5,
+          "name": "state"
+        },
+        {
+          "type": "property",
+          "operator": {
+            "type": "word",
+            "line": 3,
+            "col": 16,
+            "length": 2,
+            "name": "do"
+          },
+          "args": [
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "line": 3,
+                "col": 19,
+                "length": 5,
+                "name": "print"
+              },
+              "args": [
+                {
+                  "type": "apply",
+                  "operator": {
+                    "type": "word",
+                    "line": 3,
+                    "col": 25,
+                    "length": 1,
+                    "name": "+"
+                  },
+                  "args": [
+                    {
+                      "type": "word",
+                      "line": 3,
+                      "col": 27,
+                      "length": 1,
+                      "name": "b"
+                    },
+                    {
+                      "type": "value",
+                      "value": 1,
+                      "line": 3,
+                      "col": 29,
+                      "length": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "line": 4,
+        "col": 5,
+        "length": 5,
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "property",
+          "operator": {
+            "type": "word",
+            "line": 4,
+            "col": 11,
+            "length": 5,
+            "name": "state"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "ast",
+              "line": 4,
+              "col": 17,
+              "length": 3,
+              "raw": "\"ast\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "line": 5,
+        "col": 5,
+        "length": 5,
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "line": 5,
+            "col": 11,
+            "length": 4,
+            "name": "eval"
+          },
+          "args": [
+            {
+              "type": "word",
+              "line": 5,
+              "col": 16,
+              "length": 5,
+              "name": "state"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

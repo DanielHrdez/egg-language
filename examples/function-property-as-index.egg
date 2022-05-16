@@ -1,0 +1,5 @@
+do(
+    def(f, object(c: 9, h: fun(x, +(x,self.c)))),
+    def(x, object(z: array(4,f))),
+    print(x["z", 1, "h"](2)) # 11
+)

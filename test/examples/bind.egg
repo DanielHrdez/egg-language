@@ -1,0 +1,20 @@
+do (
+  def(x, object ( 
+    "c", 0,
+    "gc", ->(element(self, "c")),
+    "sc", ->(value, =(self["c"], value)),
+    "inc", ->(=(self["c"], +(element(self, "c"),1)))
+  )),
+  print(x),
+  x.sc(4),
+  define(g, element(x, "gc")),
+  print(g),    # [Function: bound ]
+  print(g()),  # 4
+  define(h, element(x, "sc")),
+  print(h),    # [Function: bound ]
+  print(h(5)), # 5
+  print(x.c),  # 5
+  print(x.gc()), # 5
+  print(g()),  # 5
+)
+

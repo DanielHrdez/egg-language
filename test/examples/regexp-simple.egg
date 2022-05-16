@@ -1,0 +1,10 @@
+do (
+  def(r, r/(\w+)
+         \s+
+         (\d+)  # numero 
+        /x),
+  def(s, r.test("a 4")),
+  def(m, r.exec(";;; a 42")),
+  print(s),
+  print(m),
+)

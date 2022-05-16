@@ -1,0 +1,114 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "line": 1,
+    "col": 1,
+    "length": 2,
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "line": 2,
+        "col": 3,
+        "length": 3,
+        "name": "for"
+      },
+      "args": [
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "line": 2,
+            "col": 7,
+            "length": 6,
+            "name": "define"
+          },
+          "args": [
+            {
+              "type": "word",
+              "line": 2,
+              "col": 14,
+              "length": 1,
+              "name": "x"
+            },
+            {
+              "type": "value",
+              "value": 0,
+              "line": 2,
+              "col": 17,
+              "length": 1
+            }
+          ]
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "line": 2,
+            "col": 21,
+            "length": 1,
+            "name": "<"
+          },
+          "args": [
+            {
+              "type": "word",
+              "line": 2,
+              "col": 23,
+              "length": 1,
+              "name": "x"
+            },
+            {
+              "type": "value",
+              "value": 5,
+              "line": 2,
+              "col": 26,
+              "length": 1
+            }
+          ]
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "line": 2,
+            "col": 30,
+            "length": 2,
+            "name": "++"
+          },
+          "args": [
+            {
+              "type": "word",
+              "line": 2,
+              "col": 33,
+              "length": 1,
+              "name": "x"
+            }
+          ]
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "line": 3,
+            "col": 5,
+            "length": 5,
+            "name": "print"
+          },
+          "args": [
+            {
+              "type": "word",
+              "line": 3,
+              "col": 11,
+              "length": 1,
+              "name": "x"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

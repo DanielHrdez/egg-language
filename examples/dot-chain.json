@@ -1,0 +1,84 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "line": 1,
+    "col": 1,
+    "length": 5,
+    "name": "print"
+  },
+  "args": [
+    {
+      "type": "property",
+      "operator": {
+        "type": "apply",
+        "operator": {
+          "type": "property",
+          "operator": {
+            "type": "apply",
+            "operator": {
+              "type": "word",
+              "line": 1,
+              "col": 8,
+              "length": 5,
+              "name": "array"
+            },
+            "args": [
+              {
+                "type": "value",
+                "value": 1,
+                "line": 1,
+                "col": 8,
+                "length": 1
+              },
+              {
+                "type": "value",
+                "value": 4,
+                "line": 1,
+                "col": 10,
+                "length": 1
+              },
+              {
+                "type": "value",
+                "value": 5,
+                "line": 1,
+                "col": 12,
+                "length": 1
+              }
+            ]
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "join",
+              "line": 1,
+              "col": 15,
+              "length": 4,
+              "raw": "\"join\""
+            }
+          ]
+        },
+        "args": [
+          {
+            "type": "value",
+            "value": "-",
+            "line": 1,
+            "col": 20,
+            "length": 3,
+            "raw": "\"-\""
+          }
+        ]
+      },
+      "args": [
+        {
+          "type": "value",
+          "value": "length",
+          "line": 1,
+          "col": 25,
+          "length": 6,
+          "raw": "\"length\""
+        }
+      ]
+    }
+  ]
+}

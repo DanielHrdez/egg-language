@@ -1,0 +1,68 @@
+{
+  "name": "@ull-esit-pl-2122/tfa-daniel-hernandez-de_leon-alu0101331720",
+  "version": "4.0.8",
+  "description": "PL by alu0101331720. Egg course 21/22",
+  "main": "lib/eggvm.js",
+  "scripts": {
+    "docs:build": "vuepress build docs",
+    "test": "mocha",
+    "start": "./bin/egg.js examples/two.egg",
+    "dtest": "mocha --inspect-brk",
+    "compile": "./bin/eggc.js examples/two.egg && ./bin/evm.js examples/two.egg.evm",
+    "link-parser": "npm link @ull-esit-pl-2122/egg-oop-parser-daniel-hernandez-de_leon-alu0101331720",
+    "link-lexer": "npm link @ull-esit-pl-2122/lexer-generator-daniel-hernandez-de_leon-alu0101331720",
+    "patch-lexer": "cd ../lexer-generator-daniel-hernandez-de_leon-alu0101331720 && npm version patch --force && cd ../extended-egg-daniel-hernandez-de_leon-alu0101331720",
+    "minor-lexer": "cd ../lexer-generator-daniel-hernandez-de_leon-alu0101331720 && npm version minor --force && cd ../extended-egg-daniel-hernandez-de_leon-alu0101331720",
+    "major-lexer": "cd ../lexer-generator-daniel-hernandez-de_leon-alu0101331720 && npm version major --force && cd ../extended-egg-daniel-hernandez-de_leon-alu0101331720",
+    "patch-parser": "cd ../egg-oop-parser-daniel-hernandez-de_leon-alu0101331720 && npm version patch --force && cd ../extended-egg-daniel-hernandez-de_leon-alu0101331720",
+    "minor-parser": "cd ../egg-oop-parser-daniel-hernandez-de_leon-alu0101331720 && npm version minor --force && cd ../extended-egg-daniel-hernandez-de_leon-alu0101331720",
+    "major-parser": "cd ../egg-oop-parser-daniel-hernandez-de_leon-alu0101331720 && npm version major --force && cd ../extended-egg-daniel-hernandez-de_leon-alu0101331720",
+    "preversion": "git add .",
+    "postversion": "git push && git push --tags && npm publish --access=public"
+  },
+  "bin": {
+    "egg": "./bin/egg.js",
+    "eggc": "./bin/eggc.js",
+    "evm": "./bin/evm.js"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ULL-ESIT-PL-2122/tfa-daniel-hernandez-de_leon-alu0101331720.git"
+  },
+  "keywords": [
+    "ULL",
+    "parsing",
+    "lisp",
+    "PL"
+  ],
+  "author": "Daniel Hernandez de Leon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ULL-ESIT-PL-2122/tfa-daniel-hernandez-de_leon-alu0101331720/issues"
+  },
+  "homepage": "https://github.com/ULL-ESIT-PL-2122/tfa-daniel-hernandez-de_leon-alu0101331720#readme",
+  "devDependencies": {
+    "@ull-esit-pl/example2test": "^1.0.23",
+    "chai": "^4.2.0",
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "gulp-shell": "^0.6.5",
+    "mocha": "^5.2.0",
+    "mocha-sinon": "^2.1.0",
+    "should": "^13.2.3",
+    "sinon": "^7.3.1",
+    "test-console": "^1.1.0"
+  },
+  "dependencies": {
+    "commander": "latest",
+    "node-fetch": "^2.6.0",
+    "shelljs": "^0.8.4",
+    "sync-request": "^6.1.0",
+    "vuepress": "^1.9.7",
+    "xregexp": "^4.2.4"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "line": 1,
+    "col": 1,
+    "length": 5,
+    "name": "print"
+  },
+  "args": [
+    {
+      "type": "property",
+      "operator": {
+        "type": "property",
+        "operator": {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "length": 5,
+            "name": "array"
+          },
+          "args": [
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "line": 1,
+                "col": 9,
+                "length": 5,
+                "name": "array"
+              },
+              "args": [
+                {
+                  "type": "value",
+                  "value": 1,
+                  "line": 1,
+                  "col": 9,
+                  "length": 1
+                },
+                {
+                  "type": "value",
+                  "value": 2,
+                  "line": 1,
+                  "col": 11,
+                  "length": 1
+                }
+              ]
+            },
+            {
+              "type": "value",
+              "value": 3,
+              "line": 1,
+              "col": 14,
+              "length": 1
+            }
+          ]
+        },
+        "args": [
+          {
+            "type": "value",
+            "value": "0",
+            "line": 1,
+            "col": 17,
+            "length": 3,
+            "raw": "\"0\""
+          }
+        ]
+      },
+      "args": [
+        {
+          "type": "value",
+          "value": "1",
+          "line": 1,
+          "col": 18,
+          "length": 3,
+          "raw": "\"1\""
+        }
+      ]
+    }
+  ]
+}

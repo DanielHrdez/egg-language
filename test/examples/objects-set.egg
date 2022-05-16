@@ -1,0 +1,14 @@
+do (
+  def(x, object ( 
+    "c", 0,
+    "gc", ->( self.c ),
+    "sc", ->(value, =(self.c, value)),
+    "inc", ->(=(self.c, +(self.c, 1))),
+    "inc2", ->(=(self.c, +(self.c, 1)))
+  )),
+  print(x),
+  x["inc"](),
+  print(x.gc()), # 1
+)
+
+

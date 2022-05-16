@@ -1,0 +1,257 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "line": 1,
+    "col": 1,
+    "length": 2,
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "line": 2,
+        "col": 3,
+        "length": 3,
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "line": 2,
+          "col": 7,
+          "length": 1,
+          "name": "r"
+        },
+        {
+          "type": "value",
+          "value": {
+            "type": "RegExp",
+            "info": [
+              "(\\w+) # word\n         \\s+     # spaces\n         (\\d+)   # number \n        ",
+              "x"
+            ]
+          },
+          "line": 5,
+          "col": 10,
+          "length": 78
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "line": 6,
+        "col": 3,
+        "length": 3,
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "line": 6,
+          "col": 7,
+          "length": 1,
+          "name": "s"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "property",
+            "operator": {
+              "type": "word",
+              "line": 6,
+              "col": 10,
+              "length": 1,
+              "name": "r"
+            },
+            "args": [
+              {
+                "type": "value",
+                "value": "test",
+                "line": 6,
+                "col": 12,
+                "length": 4,
+                "raw": "\"test\""
+              }
+            ]
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "a 4",
+              "line": 6,
+              "col": 17,
+              "length": 5,
+              "raw": "\"a 4\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "line": 7,
+        "col": 3,
+        "length": 3,
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "line": 7,
+          "col": 7,
+          "length": 1,
+          "name": "m"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "property",
+            "operator": {
+              "type": "word",
+              "line": 7,
+              "col": 10,
+              "length": 1,
+              "name": "r"
+            },
+            "args": [
+              {
+                "type": "value",
+                "value": "exec",
+                "line": 7,
+                "col": 12,
+                "length": 4,
+                "raw": "\"exec\""
+              }
+            ]
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "a word <a 42> followed by a number",
+              "line": 7,
+              "col": 17,
+              "length": 36,
+              "raw": "\"a word <a 42> followed by a number\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "line": 8,
+        "col": 3,
+        "length": 5,
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "word",
+          "line": 8,
+          "col": 9,
+          "length": 1,
+          "name": "s"
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "line": 9,
+        "col": 3,
+        "length": 5,
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "word",
+          "line": 9,
+          "col": 9,
+          "length": 1,
+          "name": "m"
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "line": 10,
+        "col": 3,
+        "length": 1,
+        "name": "="
+      },
+      "args": [
+        {
+          "type": "word",
+          "line": 10,
+          "col": 5,
+          "length": 1,
+          "name": "m"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "property",
+            "operator": {
+              "type": "word",
+              "line": 10,
+              "col": 8,
+              "length": 1,
+              "name": "r"
+            },
+            "args": [
+              {
+                "type": "value",
+                "value": "exec",
+                "line": 10,
+                "col": 10,
+                "length": 4,
+                "raw": "\"exec\""
+              }
+            ]
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "no word followed by a number",
+              "line": 10,
+              "col": 15,
+              "length": 30,
+              "raw": "\"no word followed by a number\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "line": 11,
+        "col": 3,
+        "length": 5,
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "word",
+          "line": 11,
+          "col": 9,
+          "length": 1,
+          "name": "m"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+do(
+  def(z, require("examples/require/module.egg")),
+  print(z.inc(4)),
+  def(w, require("examples/require/module.egg"))
+)

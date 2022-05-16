@@ -1,0 +1,16 @@
+do( 
+  def(x,9),
+  /* def crea una nueva variable local */
+  def(f, ->(
+    do(
+      def(x, 4),
+      print(x) # 4
+    )
+  )),
+  /* set no crea una nueva variable local */
+  def(g, ->(set(x, 8))),
+  f(),
+  print(x), # 9
+  g(),
+  print(x) # 8
+)

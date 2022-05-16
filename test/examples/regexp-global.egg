@@ -1,0 +1,5 @@
+do (
+  def(x, RegExp.exec("2015-02-22", r/./)),
+  print(x)
+)
+

@@ -1,0 +1,1 @@
+print([1,4,5].join("-").length) # 5 Same as array(1,4,5)["join"]("-")["length"]

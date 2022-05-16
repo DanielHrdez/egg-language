@@ -1,0 +1,5 @@
+do(
+  def(x, array(1,2,3, array(9,8,7))),
+  set(x[3][1], 1000),
+  print(x)
+)

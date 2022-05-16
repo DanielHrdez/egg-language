@@ -1,0 +1,12 @@
+(
+  def(r, r/(\w+) # word
+         \s+     # spaces
+         (\d+)   # number 
+        /x),
+  def(s, r.test("a 4")),
+  def(m, r.exec("a word <a 42> followed by a number")),
+  print(s),
+  print(m),
+  =(m, r.exec("no word followed by a number")),
+  print(m)
+)

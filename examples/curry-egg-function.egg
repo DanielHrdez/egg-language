@@ -1,0 +1,5 @@
+do(
+    def(f, fun(x, y,
+      +(x,y))),
+    print(f[2](3))
+)

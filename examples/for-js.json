@@ -1,0 +1,186 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "line": 1,
+    "col": 1,
+    "length": 2,
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "line": 2,
+        "col": 3,
+        "length": 3,
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "line": 2,
+          "col": 7,
+          "length": 1,
+          "name": "a"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "line": 2,
+            "col": 11,
+            "length": 5,
+            "name": "array"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": 4,
+              "line": 2,
+              "col": 11,
+              "length": 1
+            },
+            {
+              "type": "value",
+              "value": 3,
+              "line": 2,
+              "col": 13,
+              "length": 1
+            },
+            {
+              "type": "value",
+              "value": 2,
+              "line": 2,
+              "col": 15,
+              "length": 1
+            },
+            {
+              "type": "value",
+              "value": 1,
+              "line": 2,
+              "col": 17,
+              "length": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "property",
+        "operator": {
+          "type": "word",
+          "line": 3,
+          "col": 3,
+          "length": 1,
+          "name": "a"
+        },
+        "args": [
+          {
+            "type": "value",
+            "value": "forEach",
+            "line": 3,
+            "col": 5,
+            "length": 7,
+            "raw": "\"forEach\""
+          }
+        ]
+      },
+      "args": [
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "line": 4,
+            "col": 5,
+            "length": 3,
+            "name": "fun"
+          },
+          "args": [
+            {
+              "type": "word",
+              "line": 4,
+              "col": 9,
+              "length": 1,
+              "name": "x"
+            },
+            {
+              "type": "word",
+              "line": 4,
+              "col": 11,
+              "length": 1,
+              "name": "i"
+            },
+            {
+              "type": "word",
+              "line": 4,
+              "col": 13,
+              "length": 2,
+              "name": "ra"
+            },
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "line": 5,
+                "col": 7,
+                "length": 5,
+                "name": "print"
+              },
+              "args": [
+                {
+                  "type": "value",
+                  "value": "Element",
+                  "line": 5,
+                  "col": 13,
+                  "length": 9,
+                  "raw": "\"Element\""
+                },
+                {
+                  "type": "word",
+                  "line": 5,
+                  "col": 23,
+                  "length": 1,
+                  "name": "i"
+                },
+                {
+                  "type": "value",
+                  "value": "of ",
+                  "line": 5,
+                  "col": 25,
+                  "length": 5,
+                  "raw": "\"of \""
+                },
+                {
+                  "type": "word",
+                  "line": 5,
+                  "col": 31,
+                  "length": 2,
+                  "name": "ra"
+                },
+                {
+                  "type": "value",
+                  "value": "is",
+                  "line": 5,
+                  "col": 34,
+                  "length": 4,
+                  "raw": "\"is\""
+                },
+                {
+                  "type": "word",
+                  "line": 5,
+                  "col": 39,
+                  "length": 1,
+                  "name": "x"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
