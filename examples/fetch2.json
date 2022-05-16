@@ -1,0 +1,225 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "length": 2,
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "length": 3,
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "length": 7,
+          "name": "userUrl"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "length": 1,
+            "name": "+"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "https://api.github.com/users/",
+              "length": 31,
+              "raw": "\"https://api.github.com/users/\""
+            },
+            {
+              "type": "property",
+              "operator": {
+                "type": "property",
+                "operator": {
+                  "type": "word",
+                  "length": 7,
+                  "name": "process"
+                },
+                "args": [
+                  {
+                    "type": "value",
+                    "value": "argv",
+                    "length": 4,
+                    "raw": "\"argv\""
+                  }
+                ]
+              },
+              "args": [
+                {
+                  "type": "value",
+                  "value": 3,
+                  "length": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "length": 5,
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "word",
+          "length": 7,
+          "name": "userUrl"
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "length": 3,
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "length": 3,
+          "name": "res"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "length": 5,
+            "name": "fetch"
+          },
+          "args": [
+            {
+              "type": "word",
+              "length": 7,
+              "name": "userUrl"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "length": 3,
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "length": 4,
+          "name": "json"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "property",
+            "operator": {
+              "type": "word",
+              "length": 3,
+              "name": "res"
+            },
+            "args": [
+              {
+                "type": "value",
+                "value": "json",
+                "length": 4,
+                "raw": "\"json\""
+              }
+            ]
+          },
+          "args": []
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "length": 5,
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "property",
+          "operator": {
+            "type": "word",
+            "length": 4,
+            "name": "json"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "name",
+              "length": 4,
+              "raw": "\"name\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "length": 5,
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "property",
+          "operator": {
+            "type": "word",
+            "length": 4,
+            "name": "json"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "blog",
+              "length": 4,
+              "raw": "\"blog\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "length": 5,
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "property",
+          "operator": {
+            "type": "word",
+            "length": 4,
+            "name": "json"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "bio",
+              "length": 3,
+              "raw": "\"bio\""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

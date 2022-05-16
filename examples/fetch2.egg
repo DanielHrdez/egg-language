@@ -1,0 +1,9 @@
+do(
+  def(userUrl, +("https://api.github.com/users/", process.argv[3])),
+  print(userUrl),
+  def(res, fetch(userUrl)),
+  def(json, res.json()),
+  print(json.name), 
+  print(json.blog), 
+  print(json.bio)
+)

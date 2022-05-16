@@ -1,0 +1,7 @@
+(
+  def(cb, fun(err, data, 
+      if(==(err, null), print(data), print(err))
+  )),
+  fs.readFile("examples/no-existe.egg", "utf8", cb),
+  fs.readFile("examples/fs.egg", "utf8", cb)
+)

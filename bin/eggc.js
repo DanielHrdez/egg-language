@@ -1,10 +1,19 @@
 #!/usr/bin/env node
 const {parseFromFile} = require(
     '@ull-esit-pl-2122/egg-oop-parser-daniel-hernandez-de_leon-alu0101331720',
-).parseFromFile;
+);
 const {program} = require('commander');
 const {version} = require('../package.json');
 const fs = require('fs');
+
+const compile = (origin, destination = undefined) => {
+  if (destination == undefined) {
+    destination = origin.match(/^[^\.]*/)[0] + '.json';
+  }
+  const ast = parseFromFile(origin);
+  const astString = JSON.stringify(ast, null, 2);
+  fs.writeFileSync(destination, astString);
+};
 
 program
     .version(version)
@@ -23,12 +32,3 @@ program
     });
 
 program.parse(process.argv);
-
-const compile = (origin, destination = undefined) => {
-  if (destination == undefined) {
-    destination = origin.match(/^[^\.]*/)[0] + '.json';
-  }
-  const ast = parseFromFile(origin);
-  const astString = JSON.stringify(ast, null, 2);
-  fs.writeFileSync(destination, astString);
-};
