@@ -1,0 +1,11 @@
+(
+  def(user, ||(process.argv[3], "alu0101331720")),
+  print(user),
+  def(userUrl, +("https://api.github.com/users/", user)),
+  print(userUrl),
+  fetch(userUrl)
+    .then(->(res, res.json()))
+    .then(->(json, 
+      print(JSON.stringify(json, null, 2))
+    ))
+)
