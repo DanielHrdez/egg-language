@@ -1,0 +1,10 @@
+do (
+  def(f, fun(x, default(y, 3), default(z, 2),
+    do (
+      print(+(x, y, z))
+    )
+  )),
+  f(3),      # 8
+  f(3, 5),   # 10
+  f(3, 1, 9) # 13
+)

@@ -1,0 +1,19 @@
+do(
+  class(Math, 
+    {
+      constructor: fun(x, y, 
+        do(
+          =(self.x, x),
+          =(self.y, y)
+        )
+      ),
+      sum: fun(+(self.x, self.y))
+    }
+  ),
+  do( /* main */
+    def(a, Math.new(2,3)),
+    print(a.sum()), # 5
+    def(b, Math.new(10, 20)),
+    print(b.sum()), # 30
+  )
+)
