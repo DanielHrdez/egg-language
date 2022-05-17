@@ -5,3 +5,4 @@ const variables
 cannot def a variable twice
 object inheritance with child()
 classes!!!
+default values in functions 😱
