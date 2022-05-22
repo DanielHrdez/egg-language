@@ -7,3 +7,8 @@ object inheritance with child()
 classes!!!
 default values in functions 😱
 spread 😎
+constant folding 😘
+constant propagation
+dead code optimizations 🙂
+conditional eliminations
+use imports 😛

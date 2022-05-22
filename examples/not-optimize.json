@@ -1,0 +1,224 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "length": 2,
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "length": 3,
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "length": 1,
+          "name": "a"
+        },
+        {
+          "type": "value",
+          "value": 30,
+          "length": 2
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "length": 3,
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "length": 1,
+          "name": "b"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "length": 1,
+            "name": "-"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": 9,
+              "length": 1
+            },
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "length": 1,
+                "name": "/"
+              },
+              "args": [
+                {
+                  "type": "word",
+                  "length": 1,
+                  "name": "a"
+                },
+                {
+                  "type": "value",
+                  "value": 5,
+                  "length": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "length": 3,
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "length": 1,
+          "name": "c"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "length": 1,
+            "name": "*"
+          },
+          "args": [
+            {
+              "type": "word",
+              "length": 1,
+              "name": "b"
+            },
+            {
+              "type": "value",
+              "value": 4,
+              "length": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "length": 2,
+        "name": "if"
+      },
+      "args": [
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "length": 1,
+            "name": ">"
+          },
+          "args": [
+            {
+              "type": "word",
+              "length": 1,
+              "name": "c"
+            },
+            {
+              "type": "value",
+              "value": 10,
+              "length": 2
+            }
+          ]
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "length": 1,
+            "name": "="
+          },
+          "args": [
+            {
+              "type": "word",
+              "length": 1,
+              "name": "c"
+            },
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "length": 1,
+                "name": "-"
+              },
+              "args": [
+                {
+                  "type": "word",
+                  "length": 1,
+                  "name": "c"
+                },
+                {
+                  "type": "value",
+                  "value": 10,
+                  "length": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "length": 2,
+            "name": "do"
+          },
+          "args": []
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "length": 1,
+        "name": "*"
+      },
+      "args": [
+        {
+          "type": "word",
+          "length": 1,
+          "name": "c"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "length": 1,
+            "name": "/"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": 60,
+              "length": 2
+            },
+            {
+              "type": "word",
+              "length": 1,
+              "name": "a"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

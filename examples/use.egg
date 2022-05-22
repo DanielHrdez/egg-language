@@ -1,0 +1,5 @@
+(
+  def(lib, path.join(process.cwd(), "github.js")),
+  use(lib),
+  setToken("examples/.eggtoken"),
+)
