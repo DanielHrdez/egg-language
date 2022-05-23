@@ -1,0 +1,12 @@
+do(
+  TYPE(STUDENT, OBJECT(name: STRING,id: STRING, mark: NUMBER)),
+  TYPE(NUMLIST, ARRAY(NUMBER)),
+  TYPE(NUMFUN, FUN(NUMBER, NUMBER)),
+  NUMLIST(x, [4,7,9]),
+  STUDENT(juan, {name: "Juan", id: "aluXX", mark: 10}),
+  # NUMFUN(f, fun(x, "hi!")), # error
+  # =(juan.name, 4),          # error
+  =(juan.id, "alu123"),     # correct
+  # =(x[0], "not allowed"),   # error
+  print(juan),
+)

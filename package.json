@@ -1,6 +1,6 @@
 {
   "name": "@ull-esit-pl-2122/tfa-daniel-hernandez-de_leon-alu0101331720",
-  "version": "4.7.0",
+  "version": "4.8.0",
   "description": "PL by alu0101331720. Egg course 21/22",
   "main": "lib/eggvm.js",
   "scripts": {
@@ -64,5 +64,6 @@
     "sync-request": "^6.1.0",
     "vuepress": "^1.9.7",
     "xregexp": "^4.2.4"
-  }
+  },
+  "link": "https://ull-esit-gradoii-pl.github.io/practicas/tfa.html#introduction"
 }

@@ -8,6 +8,7 @@ const {parseFromFile} = require(
 );
 const fs = require('fs');
 const optimize = require('../lib/optimizer');
+const translate = require('../lib/translator');
 
 const compile = (origin, destination = undefined) => {
   if (destination == undefined) {
@@ -27,10 +28,17 @@ program
     .description('Egg Interpreter')
     .option('-c <file>', 'Compile the file')
     .option('--optimize', 'Enables Compile Optimizations')
+    .option('-j, --js <file>', 'Translate to JavaScript')
     .arguments('[file]', 'Egg file to run')
     .action((file) => {
       if (program.opts().c) compile(program.opts().c, file);
-      else if (file) runFromFile(file, program.opts().optimize);
+      else if (program.opts().js) {
+        let ast = parseFromFile(program.opts().js);
+        if (program.opts().optimize) {
+          ast = optimize(ast);
+        }
+        translate(ast, file);
+      } else if (file) runFromFile(file, program.opts().optimize);
       else eggRepl(program.opts().optimize);
     });
 

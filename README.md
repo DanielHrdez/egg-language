@@ -12,3 +12,9 @@ constant propagation
 dead code optimizations 🙂
 conditional eliminations
 use imports 😛
+types
+
+TODO:
+transcibe
+scope analisys
+improve location info
