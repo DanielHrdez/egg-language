@@ -8,5 +8,5 @@ do(
   # =(juan.name, 4),          # error
   =(juan.id, "alu123"),     # correct
   # =(x[0], "not allowed"),   # error
-  print(juan),
+  print(x, "\n", juan),
 )

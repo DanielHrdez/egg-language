@@ -13,8 +13,10 @@ dead code optimizations 🙂
 conditional eliminations
 use imports 😛
 types
+now i can print escaped characters 😎
+transcibe-js
 
 TODO:
-transcibe
+transcibe-lua
 scope analisys
 improve location info
