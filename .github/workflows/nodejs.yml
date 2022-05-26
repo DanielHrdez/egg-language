@@ -14,7 +14,7 @@ jobs: # jobs are made of steps
     strategy:
       # To test across multiple language versions
       matrix:
-        node-version: [10.x, 18.x]
+        node-version: [16.x, 18.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps: # Clone the repo. See https://github.com/actions/checkout
