@@ -1,12 +1,15 @@
 do(
-  def(x, object( 
+  def(x, object ( 
     "c", 0,
-    "gc", ->(element[self, "c"]),
-    "sc", ->(value, =(self["c"], value)),
-    "inc", ->(=(self["c"], +(element[self, "c"],1)))
+    "d", 4,
+    "gc", ->( c ),
+    "sc", ->(value, =(self.c, value)), # = never creates a new entry!
+    "inc", ->(=(self.c, +(self.c, 1)))
   )),
   def(y, child(x)),
-  print(y.sc(5)),
-  print(y.c),
-  print(x.c),
+  y.sc(5),  
+  y.inc(),
+  print(y),   # {c: 6}
+  print(y.d), # 4
+  print(x)    # {c:0, d:4}
 )

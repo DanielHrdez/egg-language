@@ -7,13 +7,18 @@ do(
           =(self.y, y)
         )
       ),
-      sum: fun(+(self.x, self.y))
+      methods: {
+        sum: fun(+(self.x, self.y))
+      },
+      properties: { # class properties
+        PI: 3.14159
+      },
+      # extends: null # Optional. Reference to the parent class
     }
   ),
   do( /* main */
     def(a, Math.new(2,3)),
     print(a.sum()), # 5
-    def(b, Math.new(10, 20)),
-    print(b.sum()), # 30
+    print(Math.PI),
   )
 )
