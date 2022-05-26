@@ -18,7 +18,7 @@ describe('Testing eval and state meta properties from Egg', function() {
     runTest('specialform-property', done);
   });
 
-  for (let i = 2; i <= 4; i++) {
+  for (let i = 3; i <= 4; i++) {
     it(`testing specialform-property-${i}.egg`, function(done) {
       runTest(`specialform-property-${i}`, done);
     });

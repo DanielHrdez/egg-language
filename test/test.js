@@ -97,32 +97,4 @@ describe('run', function() {
     const r = eggvm.run(program);
     r.should.eql(10);
   });
-
-  it('testing one.egg with mocking of console.log', function() {
-    const program = fs.readFileSync('test/examples/one.egg', 'utf8');
-    // eslint-disable-next-line
-    const r = eggvm.run(program);
-    output[0].should.eql('50');
-  });
-
-  it('testing array.egg with mocking of console.log', function() {
-    const program = fs.readFileSync('test/examples/array.egg', 'utf8');
-    const r = eggvm.run(program);
-    r.should.eql(5);
-    output.should.be.deepEqual(['[1,4]', '5']);
-  });
-
-  it('testing if.egg with mocking of console.log', function() {
-    const program = fs.readFileSync('test/examples/if.egg', 'utf8');
-    const r = eggvm.run(program);
-    r.should.eql(5);
-    output.should.be.deepEqual(['5']);
-  });
-
-  it('testing reduce.egg with mocking of console.log', function() {
-    const program = fs.readFileSync('test/examples/reduce.egg', 'utf8');
-    const r = eggvm.run(program);
-    r.should.eql(1);
-    output.should.be.deepEqual(['15', '720', '0', '1']);
-  });
 });

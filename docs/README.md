@@ -1,142 +1,207 @@
-# Lab Extending the Egg Interpreter
+# TFA - EGG Language
 
-See the description in the notes at [Extending the Egg Interpreter](https://ull-esit-gradoii-pl.github.io/practicas/extended-egg-interpreter.html)
-
-## Property
-
+## 1. Fetch
 ```js
-/**
- * @class Property
- */
-class Property {
-  /**
-   * @desc Evaluate the value
-   * @param {*} env - Environment
-   * @return {string} - Evaluated value
-   */
-  evaluate(env) {
-    if (this.operator.type == 'word' && this.operator.name in specialForms) {
-      const apply = new Apply(this);
-      apply.type = 'apply';
-      return {ast: apply, scope: env};
+(
+  def(user, ||(process.argv[3], "alu0101331720")),
+  print(user),
+  def(userUrl, +("https://api.github.com/users/", user)),
+  print(userUrl),
+  fetch(userUrl)
+    .then(->(res, res.json()))
+    .then(->(json, 
+      print(JSON.stringify(json, null, 2))
+    ))
+)
+```
+```js
+topEnv['JSON'] = JSON;
+String.prototype[op] = function(...args) {
+  try {
+    let sum = this;
+    for (let i = 0; i < args.length; i++) {
+      sum = binOp[op](sum, args[i]);
     }
+    return sum;
+  } catch (e) {
+    throw new Error(`Error in String method '${op}'\n`, e);
+  }
+};
+```
 
-    const theObject = this.operator.evaluate(env);
-    const propsProcessed = this.args.map((arg) => arg.evaluate(env));
-    const propName = checkNegativeIndex(theObject, propsProcessed[0]);
+## 2. Undefined Indices, Const, no hacer def 2 veces, print escaped chars
+```js
+(
+  const(a, [1, 2, 3]),
+  print(a[10]),
+)
+```
+Produce undefined y no se puede cambiar pq es const
+```js
+(
+  def(a, 1),
+  def(a, 1),
+)
+```
+Tambien produce error
+```js
+specialForms['const'] = (args, env) => {
+  if (args.length !== 2 || args[0].type !== 'word') {
+    throw new SyntaxError('Bad number of args to const');
+  }
+  const value = args[1].evaluate(env);
+  Object.defineProperty(env, args[0].name, {
+    configurable: false,
+    set: () => {
+      throw new SyntaxError('Cannot reassign const');
+    },
+    get: () => {
+      return value;
+    },
+  });
+  return value;
+};
+```
+```js
+esto en el 'def'
+if (!env['constants'] === s[index]) {
+  s[index[last]] = value;
+  return value;
+} else {
+  throw new SyntaxError('Cannot assign to constant');
+}
+```
 
-    if (theObject[propName] || propName in theObject) {
-      let object = theObject;
-      propsProcessed.forEach((element) => {
-        const previousObject = object;
-        element = checkNegativeIndex(object, element);
-        object = object[element];
-        if (typeof object === 'function') {
-          object = object.bind(previousObject);
-        }
-      });
+## 3. Spread
+```js
+specialForms['spread'] = (args, env) => {
+  if (args.length !== 1) {
+    throw new SyntaxError('Bad number of args to spread');
+  }
+  const array = args[0].evaluate(env);
+  return {spread: array};
+};
+```
+En 'fun'
+```js
+if (arg.spread) {
+  args.splice(args.indexOf(arg), 0, ...arg.spread);
+  args.splice(args.indexOf(arg), 1);
+}
+```
+
+# 4. Child y Class
+```js
+specialForms['child'] = (args, env) => {
+  if (args.length !== 1) {
+    throw new SyntaxError('Bad number of args to child');
+  }
+  const obj = Object.assign({}, args[0].evaluate(env));
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (typeof obj[key] === 'function') {
+        obj[key].env.self = obj;
+      }
+    }
+  }
+  return obj;
+};
+```
+```js
+specialForms['class'] = (args, env) => {
+  if (args.length !== 2 ||
+    args[0].type !== 'word' ||
+    args[1].operator.name !== 'object'
+  ) {
+    throw new SyntaxError('Bad of args to class');
+  }
+  const name = args[0].name;
+  const classObj = args[1].args;
+  let constructor;
+  let methods;
+  let properties;
+  for (let i = 0; i < classObj.length; i += 2) {
+    switch (classObj[i].value) {
+      case 'constructor': constructor = classObj[i + 1]; break;
+      case 'methods': methods = classObj[i + 1]; break;
+      case 'properties': properties = classObj[i + 1]; break;
+      default: throw new SyntaxError('Bad class object');
+    }
+  }
+  const ctArgsLength = constructor.args.length - 1;
+  constructor
+      .args[ctArgsLength]
+      .args
+      .push(new Word({type: 'word', name: 'self'}));
+  env[name] = {
+    new: (...args) => {
+      const object = {};
+      const objEnv = Object.create(env);
+      objEnv['self'] = object;
+      constructor.evaluate(objEnv)(...args);
+      for (let i = 0; i < methods.args.length; i += 2) {
+        const key = methods.args[i].evaluate(objEnv);
+        const value = methods.args[i + 1].evaluate(objEnv);
+        object[key] = value;
+      }
       return object;
-    } else if (typeof theObject === 'function') {
-      return (...args) => theObject(...propsProcessed, ...args);
-    } else {
-      throw new TypeError(
-          'Evaluating properties for Object ' +
-          `'${JSON.stringify(theObject)}' ` +
-          `properties: '${JSON.stringify(propsProcessed)}'`,
-      );
-    }
-  }
-
-  /**
-   * @desc Evaluate the left side of the apply
-   * @param {*} env - Environment
-   * @return {string[]} - Evaluated value
-   */
-  leftEvaluate(env) {
-    const left = this.operator.evaluate(env);
-    if (typeof left !== 'object') {
-      throw new TypeError('Left-hand side of assignment must be an object');
-    }
-    const leftIndex = this.args.map((arg) => arg.evaluate(env));
-    return [left, ...leftIndex];
-  }
-}
-```
-
-## Require
-
-```js
-function REQUIRE(args, env) {
-  if (args.length !== 1) {
-    throw new SyntaxError('Bad number of args to require');
-  }
-  const name = args[0].value;
-  if (name in REQUIRE.cache) {
-    return REQUIRE.cache[name];
-  }
-  const file = path.join(process.cwd(), name);
-  const code = readFile(file);
-  const ast = parse(code);
-  env = Object.create(topEnv);
-  const evaluated = json2AST(ast).evaluate(env);
-  REQUIRE.cache[name] = evaluated;
-  return evaluated;
-}
-```
-
-## Eval
-
-```js
-specialForms['eval'] = function(args, env) {
-  if (args.length !== 1) {
-    throw new SyntaxError(
-        `Bad use of eval, expected 1 argument but got ${args.length}`,
-    );
-  }
-  const arg = args[0].evaluate(env);
-  const ast = arg.ast;
-  const scope = arg.scope;
-  return ast.evaluate(scope);
+    },
+  };
+  Object.assign(env[name], properties.evaluate(env));
+  return true;
 };
 ```
 
-## Object & Array & Map
-
+# 5. Default values
 ```js
-specialForms['object'] = (args, env) => {
-  const objEnv = Object.create(env);
-  const object = {};
-  objEnv['self'] = object;
-  for (let i = 0; i < args.length; i += 2) {
-    object[args[i].evaluate(objEnv)] = args[i + 1].evaluate(objEnv);
+specialForms['default'] = (args, env) => {
+  if (args.length !== 2 || args[0].type !== 'word') {
+    throw new SyntaxError('Bad number of args to default');
   }
-  return object;
-};
-topEnv['arr'] = topEnv['array'] = function(...args) {
-  return args;
-};
-topEnv['map'] = function(...args) {
-  const map = new Map();
-  for (let i = 0; i < args.length; i += 2) {
-    map[args[i]] = args[i + 1];
-  }
-  return map;
+  const [key, defaultValue] = args;
+  const value = defaultValue.evaluate(env);
+  env[key.name] = value;
+  return value;
 };
 ```
 
-## For Loop
-
+# 6. Optimizations
 ```js
-specialForms['for'] = function(args, env) {
-  if (args.length !== 4) {
-    throw new SyntaxError('Bad number of args to for');
+const optimize = (ast) => {
+  do {
+    change = false;
+    ast = constantPropagation(ast, {});
+    ast = constantFolding(ast);
+    ast = deadCodeElimination(ast);
+    ast = conditionalElimination(ast);
+    inBranch.length = 0;
+  } while (change);
+  return ast;
+};
+```
+
+# 7. Use
+```js
+specialForms['use'] = (args, env) => {
+  if (args.length !== 1 || args[0].type !== 'word') {
+    throw new SyntaxError('Bad number of args to use');
   }
-  const [init, test, incr, body] = args;
-  const scope = Object.create(env);
-  let last = undefined;
-  for (init.evaluate(scope); test.evaluate(scope); incr.evaluate(scope)) {
-    last = body.evaluate(scope);
-  }
-  return last;
+  const name = args[0].evaluate(env);
+  const {topEnv_, specialForms_} = require(name);
+  Object.assign(topEnv, topEnv_);
+  Object.assign(specialForms, specialForms_);
+  return true;
+};
+```
+
+# 8. Types
+Es demasiado largo para poner en el informe.
+
+# 9. Translate to JS
+```js
+const translate = (json, destination) => {
+  const ast = json2AST(json);
+  const code = jsBeautify(ast.generateJS({}) + ';', jsBeautifyConfig);
+  fs.writeFileSync(destination, HEADER + code);
 };
 ```
